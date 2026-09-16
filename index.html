@@ -19,199 +19,357 @@
   <meta name="apple-mobile-web-app-title" content="OCB">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
 
-  <title>Orchestre Con Brio</title>
+  <title>OCB</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 40px 20px;
+      padding: 20px;
+      min-height: 100vh;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
       background: #f5f5f5;
+      color: #222;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .container {
-      max-width: 500px;
-      margin: auto;
+      width: 100%;
+      max-width: 480px;
+
       background: white;
-      padding: 30px 20px;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+
+      padding: 30px 22px;
+
+      border-radius: 20px;
+
+      text-align: center;
+
+      box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.10);
     }
 
-    img {
+    .logo {
       width: 120px;
       height: 120px;
+
       border-radius: 24px;
-      margin-bottom: 20px;
+
+      margin-bottom: 15px;
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin: 5px 0 8px;
+      font-size: 30px;
     }
 
-    p {
-      line-height: 1.5;
+    .subtitle {
+      margin: 0 0 25px;
+
+      color: #666;
+      font-size: 17px;
     }
 
-    button,
     .button {
-      display: inline-block;
-      margin: 10px 5px;
-      padding: 14px 22px;
+      display: block;
+
+      width: 100%;
+
+      margin: 12px 0;
+
+      padding: 15px 20px;
+
       border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
+      border-radius: 12px;
+
+      font-size: 17px;
+      font-weight: 600;
+
       text-decoration: none;
+
+      cursor: pointer;
+
       background: #222;
       color: white;
     }
 
-    #installButton {
+    .button.secondary {
+      background: #eeeeee;
+      color: #222;
+    }
+
+    .button.install {
+      background: #1769aa;
+    }
+
+    .instructions {
+      margin-top: 22px;
+
+      padding: 18px;
+
+      background: #f3f3f3;
+
+      border-radius: 12px;
+
+      text-align: left;
+
+      line-height: 1.55;
+    }
+
+    .instructions h2 {
+      margin-top: 0;
+
+      font-size: 19px;
+    }
+
+    .instructions ol {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .hidden {
       display: none;
     }
 
-    #iosHelp {
-      display: none;
+    .note {
       margin-top: 20px;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 10px;
-      text-align: left;
+
+      font-size: 13px;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <main class="container">
 
-    <img src="./icons/icon-192.png" alt="OCB">
+    <img
+      class="logo"
+      src="./icons/icon-192.png"
+      alt="Logo OCB"
+    >
 
-    <h1>Digipad OCB</h1>
+    <h1>Orchestre Con Brio</h1>
 
-    <p>
+    <p class="subtitle">
       Accès au Digipad OCB
     </p>
 
-    <!-- Bouton d'installation Android / Chrome -->
-    <button id="installButton">
-      📱 Installer le Digipad OCB
-    </button>
 
-    <!-- Ouverture du Digipad -->
+    <!-- ==================================================
+         ANDROID / CHROME
+         ================================================== -->
+
+    <section id="androidSection" class="hidden">
+
+      <button
+        id="installButton"
+        class="button install"
+      >
+        📱 Installer OCB
+      </button>
+
+      <p class="note">
+        Installez un raccourci OCB sur ton écran d'accueil pour y accéder
+        facilement.
+      </p>
+
+    </section>
+
+
+    <!-- ==================================================
+         IPHONE / IPAD
+         ================================================== -->
+
+    <section id="iosSection" class="hidden">
+
+      <div class="instructions">
+
+        <h2>
+          📱 Installer OCB
+        </h2>
+
+        <ol>
+          <li>
+            Ouvrez cette page avec
+            <strong>Safari</strong>.
+          </li>
+
+          <li>
+            Appuyez sur le bouton
+            <strong>Partager</strong>
+            <span aria-label="Partager">⬆️</span>.
+          </li>
+
+          <li>
+            Faites défiler puis choisissez
+            <strong>« Sur l’écran d’accueil »</strong>.
+          </li>
+
+          <li>
+            Appuyez sur
+            <strong>« Ajouter »</strong>.
+          </li>
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         ORDINATEUR
+         ================================================== -->
+
+    <section id="desktopSection" class="hidden">
+
+      <div class="instructions">
+
+        <h2>
+          💻 Installer OCB
+        </h2>
+
+        <p>
+          Si votre navigateur propose l'installation de
+          l'application, utilisez l'icône
+          <strong>Installer</strong>
+          dans la barre d'adresse.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         BOUTON DIGIPAD
+         ================================================== -->
+
     <a
       class="button"
       href="https://digipad.app/p/1234419/95149a1460b23"
       target="_blank"
       rel="noopener"
     >
-      🎷 Ouvrir le digipad OCB
+      🎷 Ouvrir le Digipad
     </a>
 
-    <!-- Explications iPhone -->
-    <div id="iosHelp">
 
-      <strong>Installer OCB sur iPhone / iPad</strong>
+    <p class="note">
+      Vous pouvez installer OCB sur votre écran ou simplement consulter le Digipad.
+    </p>
 
-      <p>
-        1. Appuie sur le bouton
-        <strong>Partager</strong>
-        de Safari.
-      </p>
+  </main>
 
-      <p>
-        2. Choisissez
-        <strong>« Sur l’écran d’accueil »</strong>.
-      </p>
-
-      <p>
-        3. Validez avec
-        <strong>« Ajouter »</strong>.
-      </p>
-
-    </div>
-
-  </div>
 
   <script>
 
     /*
-     * Installation PWA
+     * =====================================================
+     * DÉTECTION DU TYPE D'APPAREIL
+     * =====================================================
      */
 
-    let deferredPrompt;
+    const userAgent = navigator.userAgent || "";
 
-    const installButton =
-      document.getElementById("installButton");
-
-    window.addEventListener("beforeinstallprompt", event => {
-
-      // Empêche le navigateur d'afficher automatiquement
-      event.preventDefault();
-
-      // On conserve l'événement pour plus tard
-      deferredPrompt = event;
-
-      // Affiche notre bouton
-      installButton.style.display = "inline-block";
-
-    });
-
-    installButton.addEventListener("click", async () => {
-
-      if (!deferredPrompt) {
-        return;
-      }
-
-      // Affiche la fenêtre d'installation
-      deferredPrompt.prompt();
-
-      // Attend la réponse de l'utilisateur
-      const { outcome } =
-        await deferredPrompt.userChoice;
-
-      console.log(
-        "Installation PWA :",
-        outcome
+    const isIOS =
+      /iPhone|iPad|iPod/i.test(userAgent) ||
+      (
+        navigator.platform === "MacIntel" &&
+        navigator.maxTouchPoints > 1
       );
 
-      // L'événement ne peut être utilisé qu'une fois
-      deferredPrompt = null;
+    const isAndroid =
+      /Android/i.test(userAgent);
 
-      installButton.style.display = "none";
-
-    });
+    const isMobile =
+      isIOS || isAndroid;
 
 
     /*
-     * Détection iPhone / iPad
+     * Vérifie si l'application est déjà installée
      */
 
-    const isIOS =
-      /iphone|ipad|ipod/i.test(
-        navigator.userAgent
-      );
-
     const isStandalone =
-      window.navigator.standalone === true ||
       window.matchMedia(
         "(display-mode: standalone)"
-      ).matches;
+      ).matches ||
+      window.navigator.standalone === true;
 
-    if (isIOS && !isStandalone) {
 
+    /*
+     * =====================================================
+     * AFFICHAGE SELON L'APPAREIL
+     * =====================================================
+     */
+
+    const androidSection =
       document.getElementById(
-        "iosHelp"
-      ).style.display = "block";
+        "androidSection"
+      );
+
+    const iosSection =
+      document.getElementById(
+        "iosSection"
+      );
+
+    const desktopSection =
+      document.getElementById(
+        "desktopSection"
+      );
+
+
+    if (isIOS) {
+
+      /*
+       * iPhone / iPad
+       */
+
+      if (!isStandalone) {
+
+        iosSection.classList.remove(
+          "hidden"
+        );
+
+      }
+
+    } else if (isAndroid) {
+
+      /*
+       * Android
+       */
+
+      if (!isStandalone) {
+
+        androidSection.classList.remove(
+          "hidden"
+        );
+
+      }
+
+    } else {
+
+      /*
+       * Ordinateur
+       */
+
+      desktopSection.classList.remove(
+        "hidden"
+      );
 
     }
-
-
-  
-  </script>
-
-</body>
-</html>
