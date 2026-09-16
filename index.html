@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <meta name="theme-color" content="#ffffff">
 
@@ -59,16 +57,13 @@
 
       text-align: center;
 
-      box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.10);
+      box-shadow: 0 4px 20px rgba(0,0,0,.10);
     }
 
     .logo {
       width: 120px;
       height: 120px;
-
       border-radius: 24px;
-
       margin-bottom: 15px;
     }
 
@@ -79,18 +74,14 @@
 
     .subtitle {
       margin: 0 0 25px;
-
       color: #666;
       font-size: 17px;
     }
 
     .button {
       display: block;
-
       width: 100%;
-
       margin: 12px 0;
-
       padding: 15px 20px;
 
       border: none;
@@ -100,45 +91,30 @@
       font-weight: 600;
 
       text-decoration: none;
-
       cursor: pointer;
 
       background: #222;
       color: white;
     }
 
-    .button.secondary {
-      background: #eeeeee;
-      color: #222;
-    }
-
-    .button.install {
+    .install {
       background: #1769aa;
     }
 
     .instructions {
-      margin-top: 22px;
-
+      margin: 20px 0;
       padding: 18px;
 
       background: #f3f3f3;
-
       border-radius: 12px;
 
       text-align: left;
-
       line-height: 1.55;
     }
 
     .instructions h2 {
       margin-top: 0;
-
       font-size: 19px;
-    }
-
-    .instructions ol {
-      padding-left: 22px;
-      margin-bottom: 0;
     }
 
     .hidden {
@@ -147,7 +123,6 @@
 
     .note {
       margin-top: 20px;
-
       font-size: 13px;
       color: #777;
     }
@@ -156,220 +131,319 @@
 
 <body>
 
-  <main class="container">
+<main class="container">
 
-    <img
-      class="logo"
-      src="./icons/icon-192.png"
-      alt="Logo OCB"
+  <img
+    class="logo"
+    src="./icons/icon-192.png"
+    alt="Logo OCB"
+  >
+
+  <h1>OCB</h1>
+
+  <p class="subtitle">
+    Accès au Digipad OCB
+  </p>
+
+
+  <!-- =========================
+       ANDROID
+       ========================= -->
+
+  <section id="androidSection" class="hidden">
+
+    <button
+      id="installButton"
+      class="button install"
     >
+      📱 Installer OCB
+    </button>
 
-    <h1>Orchestre Con Brio</h1>
+    <div
+      id="androidHelp"
+      class="instructions hidden"
+    >
+      <h2>Installer OCB</h2>
 
-    <p class="subtitle">
-      Accès au Digipad OCB
-    </p>
-
-
-    <!-- ==================================================
-         ANDROID / CHROME
-         ================================================== -->
-
-    <section id="androidSection" class="hidden">
-
-      <button
-        id="installButton"
-        class="button install"
-      >
-        📱 Installer OCB
-      </button>
-
-      <p class="note">
-        Installez un raccourci OCB sur ton écran d'accueil pour y accéder
-        facilement.
+      <p>
+        Si la fenêtre d'installation ne s'ouvre pas :
       </p>
 
-    </section>
+      <ol>
+        <li>
+          Appuie sur le menu
+          <strong>⋮</strong> de Chrome.
+        </li>
+
+        <li>
+          Choisis
+          <strong>« Installer l'application »</strong>
+          ou
+          <strong>« Ajouter à l'écran d'accueil »</strong>.
+        </li>
+
+        <li>
+          Confirme avec
+          <strong>Installer</strong> ou
+          <strong>Ajouter</strong>.
+        </li>
+      </ol>
+    </div>
+
+  </section>
 
 
-    <!-- ==================================================
-         IPHONE / IPAD
-         ================================================== -->
+  <!-- =========================
+       IOS
+       ========================= -->
 
-    <section id="iosSection" class="hidden">
+  <section id="iosSection" class="hidden">
 
-      <div class="instructions">
+    <div class="instructions">
 
-        <h2>
-          📱 Installer OCB
-        </h2>
+      <h2>🍎 Installer OCB</h2>
 
-        <ol>
-          <li>
-            Ouvrez cette page avec
-            <strong>Safari</strong>.
-          </li>
+      <ol>
+        <li>
+          Ouvre cette page avec
+          <strong>Safari</strong>.
+        </li>
 
-          <li>
-            Appuyez sur le bouton
-            <strong>Partager</strong>
-            <span aria-label="Partager">⬆️</span>.
-          </li>
+        <li>
+          Appuie sur
+          <strong>Partager</strong>
+          ⬆️.
+        </li>
 
-          <li>
-            Faites défiler puis choisissez
-            <strong>« Sur l’écran d’accueil »</strong>.
-          </li>
+        <li>
+          Choisis
+          <strong>« Sur l’écran d’accueil »</strong>.
+        </li>
 
-          <li>
-            Appuyez sur
-            <strong>« Ajouter »</strong>.
-          </li>
-        </ol>
+        <li>
+          Appuie sur
+          <strong>« Ajouter »</strong>.
+        </li>
+      </ol>
 
-      </div>
+    </div>
 
-    </section>
+  </section>
 
 
-    <!-- ==================================================
-         ORDINATEUR
-         ================================================== -->
+  <!-- =========================
+       ORDINATEUR
+       ========================= -->
 
-    <section id="desktopSection" class="hidden">
+  <section id="desktopSection" class="hidden">
 
-      <div class="instructions">
+    <div class="instructions">
 
-        <h2>
-          💻 Installer OCB
-        </h2>
+      <h2>💻 Installer OCB</h2>
 
-        <p>
-          Si votre navigateur propose l'installation de
-          l'application, utilisez l'icône
-          <strong>Installer</strong>
-          dans la barre d'adresse.
-        </p>
+      <p>
+        Si ton navigateur propose l'installation,
+        utilise l'icône d'installation dans la barre
+        d'adresse.
+      </p>
 
-      </div>
+    </div>
 
-    </section>
+  </section>
 
 
-    <!-- ==================================================
-         BOUTON DIGIPAD
-         ================================================== -->
+  <!-- =========================
+       DIGIPAD
+       ========================= -->
 
-    <a
-      class="button"
-      href="https://digipad.app/p/1234419/95149a1460b23"
-      target="_blank"
-      rel="noopener"
-    >
-      🎷 Ouvrir le Digipad
-    </a>
+  <a
+    class="button"
+    href="https://digipad.app/p/1234419/95149a1460b23"
+    target="_blank"
+    rel="noopener"
+  >
+    🎵 Ouvrir le Digipad
+  </a>
+
+  <p class="note">
+    Installe OCB sur ton appareil ou ouvre directement
+    le Digipad.
+  </p>
+
+</main>
 
 
-    <p class="note">
-      Vous pouvez installer OCB sur votre écran ou simplement consulter le Digipad.
-    </p>
+<script>
 
-  </main>
+/*
+ * ========================================================
+ * DÉTECTION DE L'APPAREIL
+ * ========================================================
+ */
+
+const ua = navigator.userAgent || "";
+
+const isIOS =
+  /iPhone|iPad|iPod/i.test(ua) ||
+  (
+    navigator.platform === "MacIntel" &&
+    navigator.maxTouchPoints > 1
+  );
+
+const isAndroid =
+  /Android/i.test(ua);
+
+const isStandalone =
+  window.matchMedia("(display-mode: standalone)").matches ||
+  window.navigator.standalone === true;
 
 
-  <script>
+/*
+ * ========================================================
+ * ÉLÉMENTS
+ * ========================================================
+ */
+
+const androidSection =
+  document.getElementById("androidSection");
+
+const iosSection =
+  document.getElementById("iosSection");
+
+const desktopSection =
+  document.getElementById("desktopSection");
+
+const installButton =
+  document.getElementById("installButton");
+
+const androidHelp =
+  document.getElementById("androidHelp");
+
+
+/*
+ * ========================================================
+ * AFFICHAGE
+ * ========================================================
+ */
+
+if (isIOS) {
+
+  if (!isStandalone) {
+    iosSection.classList.remove("hidden");
+  }
+
+}
+else if (isAndroid) {
+
+  if (!isStandalone) {
+    androidSection.classList.remove("hidden");
+  }
+
+}
+else {
+
+  desktopSection.classList.remove("hidden");
+
+}
+
+
+/*
+ * ========================================================
+ * INSTALLATION ANDROID
+ * ========================================================
+ */
+
+let deferredPrompt = null;
+
+
+/*
+ * Chrome indique que l'application
+ * peut être installée.
+ */
+
+window.addEventListener(
+  "beforeinstallprompt",
+  event => {
+
+    event.preventDefault();
+
+    deferredPrompt = event;
+
+    installButton.textContent =
+      "📱 Installer OCB";
+
+  }
+);
+
+
+/*
+ * Bouton Installer
+ */
+
+installButton.addEventListener(
+  "click",
+  async () => {
 
     /*
-     * =====================================================
-     * DÉTECTION DU TYPE D'APPAREIL
-     * =====================================================
+     * Chrome a fourni la fenêtre
+     * d'installation.
      */
 
-    const userAgent = navigator.userAgent || "";
+    if (deferredPrompt) {
 
-    const isIOS =
-      /iPhone|iPad|iPod/i.test(userAgent) ||
-      (
-        navigator.platform === "MacIntel" &&
-        navigator.maxTouchPoints > 1
+      deferredPrompt.prompt();
+
+      const result =
+        await deferredPrompt.userChoice;
+
+      console.log(
+        "Installation :",
+        result.outcome
       );
 
-    const isAndroid =
-      /Android/i.test(userAgent);
+      deferredPrompt = null;
 
-    const isMobile =
-      isIOS || isAndroid;
-
-
-    /*
-     * Vérifie si l'application est déjà installée
-     */
-
-    const isStandalone =
-      window.matchMedia(
-        "(display-mode: standalone)"
-      ).matches ||
-      window.navigator.standalone === true;
-
-
-    /*
-     * =====================================================
-     * AFFICHAGE SELON L'APPAREIL
-     * =====================================================
-     */
-
-    const androidSection =
-      document.getElementById(
-        "androidSection"
-      );
-
-    const iosSection =
-      document.getElementById(
-        "iosSection"
-      );
-
-    const desktopSection =
-      document.getElementById(
-        "desktopSection"
-      );
-
-
-    if (isIOS) {
-
-      /*
-       * iPhone / iPad
-       */
-
-      if (!isStandalone) {
-
-        iosSection.classList.remove(
-          "hidden"
-        );
-
-      }
-
-    } else if (isAndroid) {
-
-      /*
-       * Android
-       */
-
-      if (!isStandalone) {
-
-        androidSection.classList.remove(
-          "hidden"
-        );
-
-      }
-
-    } else {
-
-      /*
-       * Ordinateur
-       */
-
-      desktopSection.classList.remove(
-        "hidden"
-      );
-
+      return;
     }
+
+
+    /*
+     * Chrome n'a pas fourni
+     * la fenêtre automatique.
+     *
+     * On affiche les instructions
+     * manuelles.
+     */
+
+    androidHelp.classList.remove(
+      "hidden"
+    );
+
+  }
+);
+
+
+/*
+ * ========================================================
+ * INSTALLATION TERMINÉE
+ * ========================================================
+ */
+
+window.addEventListener(
+  "appinstalled",
+  () => {
+
+    console.log(
+      "OCB a été installée."
+    );
+
+    installButton.style.display =
+      "none";
+
+  }
+);
+
+</script>
+
+</body>
+</html>
