@@ -1,29 +1,61 @@
+```html
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
   <meta name="theme-color" content="#ffffff">
+
+  <!-- Installation sur iPhone / iPad -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="OCB">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.webmanifest">
+
+  <!-- Icône iPhone / iPad -->
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+
   <title>OCB</title>
 </head>
+
 <body>
-<script>
-  const target = "https://digipad.app/p/1234419/95149a1460b23";
-  location.replace(target);
-</script>
-<noscript>
-  <p>Ouverture du Digipad OCB…</p>
-  <p><a href="https://digipad.app/p/1234419/95149a1460b23">Ouvrir OCB</a></p>
-</noscript>
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js").catch(()=>{});
-  }
-</script>
+
+  <main>
+    <p>Ouverture du Digipad OCB…</p>
+
+    <p>
+      <a href="https://digipad.app/p/1234419/95149a1460b23">
+        Ouvrir OCB
+      </a>
+    </p>
+  </main>
+
+  <script>
+    const target = "https://digipad.app/p/1234419/95149a1460b23";
+
+    // Ouverture automatique du Digipad
+    window.location.replace(target);
+  </script>
+
+  <script>
+    // Enregistrement du service worker
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+          .catch(error => {
+            console.error("Erreur service worker :", error);
+          });
+      });
+    }
+  </script>
+
 </body>
 </html>
+```
