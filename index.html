@@ -1,10 +1,13 @@
+```html
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
   <meta name="theme-color" content="#ffffff">
 
@@ -50,14 +53,13 @@
       max-width: 480px;
 
       background: white;
-
       padding: 30px 22px;
 
       border-radius: 20px;
 
       text-align: center;
 
-      box-shadow: 0 4px 20px rgba(0,0,0,.10);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
     }
 
     .logo {
@@ -81,6 +83,7 @@
     .button {
       display: block;
       width: 100%;
+
       margin: 12px 0;
       padding: 15px 20px;
 
@@ -97,8 +100,12 @@
       color: white;
     }
 
-    .install {
+    .button.install {
       background: #1769aa;
+    }
+
+    .button.chrome {
+      background: #4285f4;
     }
 
     .instructions {
@@ -115,6 +122,11 @@
     .instructions h2 {
       margin-top: 0;
       font-size: 19px;
+    }
+
+    .instructions ol {
+      padding-left: 22px;
+      margin-bottom: 0;
     }
 
     .hidden {
@@ -146,11 +158,45 @@
   </p>
 
 
-  <!-- =========================
-       ANDROID
-       ========================= -->
+  <!-- =====================================================
+       ANDROID - AUTRE NAVIGATEUR
+       ===================================================== -->
 
-  <section id="androidSection" class="hidden">
+  <section id="androidOtherSection" class="hidden">
+
+    <div class="instructions">
+
+      <h2>📱 Installer OCB</h2>
+
+      <p>
+        Pour installer OCB sur Android,
+        cette page doit être ouverte avec
+        <strong>Google Chrome</strong>.
+      </p>
+
+      <a
+        id="openChromeButton"
+        class="button chrome"
+        href="#"
+      >
+        🌐 Ouvrir dans Chrome
+      </a>
+
+      <p class="note">
+        Si Chrome ne s'ouvre pas automatiquement,
+        ouvre cette adresse avec Google Chrome.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       ANDROID - CHROME
+       ===================================================== -->
+
+  <section id="androidChromeSection" class="hidden">
 
     <button
       id="installButton"
@@ -160,19 +206,22 @@
     </button>
 
     <div
-      id="androidHelp"
+      id="androidChromeHelp"
       class="instructions hidden"
     >
-      <h2>Installer OCB</h2>
+
+      <h2>📱 Installer OCB</h2>
 
       <p>
-        Si la fenêtre d'installation ne s'ouvre pas :
+        Chrome ne propose pas automatiquement
+        l'installation.
       </p>
 
       <ol>
         <li>
           Appuie sur le menu
-          <strong>⋮</strong> de Chrome.
+          <strong>⋮</strong>
+          de Chrome.
         </li>
 
         <li>
@@ -184,18 +233,20 @@
 
         <li>
           Confirme avec
-          <strong>Installer</strong> ou
+          <strong>Installer</strong>
+          ou
           <strong>Ajouter</strong>.
         </li>
       </ol>
+
     </div>
 
   </section>
 
 
-  <!-- =========================
-       IOS
-       ========================= -->
+  <!-- =====================================================
+       IPHONE / IPAD
+       ===================================================== -->
 
   <section id="iosSection" class="hidden">
 
@@ -203,12 +254,12 @@
 
       <h2>🍎 Installer OCB</h2>
 
-      <ol>
-        <li>
-          Ouvre cette page avec
-          <strong>Safari</strong>.
-        </li>
+      <p>
+        Pour installer OCB sur iPhone ou iPad,
+        ouvre cette page dans <strong>Safari</strong>.
+      </p>
 
+      <ol>
         <li>
           Appuie sur
           <strong>Partager</strong>
@@ -217,7 +268,7 @@
 
         <li>
           Choisis
-          <strong>« Sur l’écran d’accueil »</strong>.
+          <strong>« Sur l'écran d'accueil »</strong>.
         </li>
 
         <li>
@@ -231,9 +282,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        ORDINATEUR
-       ========================= -->
+       ===================================================== -->
 
   <section id="desktopSection" class="hidden">
 
@@ -242,9 +293,10 @@
       <h2>💻 Installer OCB</h2>
 
       <p>
-        Si ton navigateur propose l'installation,
-        utilise l'icône d'installation dans la barre
-        d'adresse.
+        Si ton navigateur permet l'installation
+        de l'application, utilise l'icône
+        <strong>Installer</strong>
+        dans la barre d'adresse.
       </p>
 
     </div>
@@ -252,9 +304,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        DIGIPAD
-       ========================= -->
+       ===================================================== -->
 
   <a
     class="button"
@@ -262,12 +314,11 @@
     target="_blank"
     rel="noopener"
   >
-    🎷 Ouvrir le Digipad
+    🎵 Ouvrir le Digipad
   </a>
 
   <p class="note">
-    Installe OCB sur ton appareil ou ouvre directement
-    le Digipad.
+    Tu peux installer OCB ou ouvrir directement le Digipad.
   </p>
 
 </main>
@@ -276,12 +327,15 @@
 <script>
 
 /*
- * ========================================================
- * DÉTECTION DE L'APPAREIL
- * ========================================================
+ * ==========================================================
+ * INFORMATIONS APPAREIL / NAVIGATEUR
+ * ==========================================================
  */
 
 const ua = navigator.userAgent || "";
+
+const isAndroid =
+  /Android/i.test(ua);
 
 const isIOS =
   /iPhone|iPad|iPod/i.test(ua) ||
@@ -290,75 +344,140 @@ const isIOS =
     navigator.maxTouchPoints > 1
   );
 
-const isAndroid =
-  /Android/i.test(ua);
+const isChromeAndroid =
+  isAndroid &&
+  /Chrome/i.test(ua) &&
+  !/EdgA|OPR|SamsungBrowser|Firefox/i.test(ua);
 
 const isStandalone =
-  window.matchMedia("(display-mode: standalone)").matches ||
+  window.matchMedia(
+    "(display-mode: standalone)"
+  ).matches ||
   window.navigator.standalone === true;
 
 
 /*
- * ========================================================
+ * ==========================================================
  * ÉLÉMENTS
- * ========================================================
+ * ==========================================================
  */
 
-const androidSection =
-  document.getElementById("androidSection");
+const androidOtherSection =
+  document.getElementById(
+    "androidOtherSection"
+  );
+
+const androidChromeSection =
+  document.getElementById(
+    "androidChromeSection"
+  );
 
 const iosSection =
-  document.getElementById("iosSection");
+  document.getElementById(
+    "iosSection"
+  );
 
 const desktopSection =
-  document.getElementById("desktopSection");
+  document.getElementById(
+    "desktopSection"
+  );
 
 const installButton =
-  document.getElementById("installButton");
+  document.getElementById(
+    "installButton"
+  );
 
-const androidHelp =
-  document.getElementById("androidHelp");
+const androidChromeHelp =
+  document.getElementById(
+    "androidChromeHelp"
+  );
+
+const openChromeButton =
+  document.getElementById(
+    "openChromeButton"
+  );
 
 
 /*
- * ========================================================
- * AFFICHAGE
- * ========================================================
+ * ==========================================================
+ * AFFICHAGE PRINCIPAL
+ * ==========================================================
  */
 
-if (isIOS) {
+if (isAndroid && !isStandalone) {
 
-  if (!isStandalone) {
-    iosSection.classList.remove("hidden");
+  if (isChromeAndroid) {
+
+    /*
+     * Android + Google Chrome
+     */
+
+    androidChromeSection.classList.remove(
+      "hidden"
+    );
+
+  } else {
+
+    /*
+     * Android + autre navigateur
+     */
+
+    androidOtherSection.classList.remove(
+      "hidden"
+    );
+
   }
 
 }
-else if (isAndroid) {
+else if (isIOS && !isStandalone) {
 
-  if (!isStandalone) {
-    androidSection.classList.remove("hidden");
-  }
+  /*
+   * iPhone / iPad
+   */
+
+  iosSection.classList.remove(
+    "hidden"
+  );
 
 }
-else {
+else if (!isStandalone) {
 
-  desktopSection.classList.remove("hidden");
+  /*
+   * Ordinateur
+   */
+
+  desktopSection.classList.remove(
+    "hidden"
+  );
 
 }
 
 
 /*
- * ========================================================
- * INSTALLATION ANDROID
- * ========================================================
+ * ==========================================================
+ * LIEN "OUVRIR DANS CHROME"
+ * ==========================================================
+ */
+
+const currentURL =
+  "https://skuntzmann.github.io/ocb/";
+
+openChromeButton.href =
+  "googlechrome://navigate?url=" +
+  encodeURIComponent(currentURL);
+
+
+/*
+ * ==========================================================
+ * INSTALLATION PWA ANDROID / CHROME
+ * ==========================================================
  */
 
 let deferredPrompt = null;
 
 
 /*
- * Chrome indique que l'application
- * peut être installée.
+ * Chrome indique que la PWA est installable.
  */
 
 window.addEventListener(
@@ -368,9 +487,6 @@ window.addEventListener(
     event.preventDefault();
 
     deferredPrompt = event;
-
-    installButton.textContent =
-      "📱 Installer OCB";
 
   }
 );
@@ -385,8 +501,7 @@ installButton.addEventListener(
   async () => {
 
     /*
-     * Chrome a fourni la fenêtre
-     * d'installation.
+     * Installation native disponible
      */
 
     if (deferredPrompt) {
@@ -397,7 +512,7 @@ installButton.addEventListener(
         await deferredPrompt.userChoice;
 
       console.log(
-        "Installation :",
+        "Installation OCB :",
         result.outcome
       );
 
@@ -408,14 +523,11 @@ installButton.addEventListener(
 
 
     /*
-     * Chrome n'a pas fourni
-     * la fenêtre automatique.
-     *
-     * On affiche les instructions
-     * manuelles.
+     * Pas de fenêtre automatique :
+     * afficher les instructions Chrome.
      */
 
-    androidHelp.classList.remove(
+    androidChromeHelp.classList.remove(
       "hidden"
     );
 
@@ -424,9 +536,9 @@ installButton.addEventListener(
 
 
 /*
- * ========================================================
- * INSTALLATION TERMINÉE
- * ========================================================
+ * ==========================================================
+ * APPLICATION INSTALLÉE
+ * ==========================================================
  */
 
 window.addEventListener(
@@ -447,3 +559,4 @@ window.addEventListener(
 
 </body>
 </html>
+```
