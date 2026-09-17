@@ -49,8 +49,12 @@
 
     p {
       line-height: 1.5;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
+
+    /*
+     * Boutons
+     */
 
     .button {
       display: block;
@@ -59,31 +63,68 @@
       margin: 12px 0;
       border: none;
       border-radius: 10px;
-      background: #07549a;
-      color: white;
       font-size: 17px;
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
     }
 
-    .button.secondary {
-      background: #555;
+    /* Bouton principal : couleur bleue du logo */
+    .button.digipad {
+      background: #07549a;
+      color: white;
+      margin-top: 10px;
+      margin-bottom: 30px;
     }
 
-    .instructions {
+    /* Boutons d'installation : gris */
+    .button.install {
+      background: #666666;
+      color: white;
+    }
+
+    .button.install:hover {
+      background: #555555;
+    }
+
+    /*
+     * Sections d'installation
+     */
+
+    .installation {
       display: none;
-      margin: 20px 0;
-      padding: 18px;
-      border-radius: 10px;
+      margin-top: 10px;
+      padding: 20px;
+      border-radius: 12px;
       background: #f1f1f1;
       text-align: left;
       line-height: 1.6;
     }
 
-    .instructions strong {
+    .installation-title {
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .installation p {
+      margin-bottom: 15px;
+    }
+
+    .installation ol {
+      padding-left: 25px;
+      margin-bottom: 10px;
+    }
+
+    .installation small {
       display: block;
-      margin-bottom: 8px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .installation .button {
+      text-align: center;
     }
   </style>
 </head>
@@ -92,6 +133,7 @@
 
   <div class="container">
 
+    <!-- Logo -->
     <img
       class="logo"
       src="./icons/logo_ocb_noir.png"
@@ -104,130 +146,207 @@
       Accédez au Digipad de l'Orchestre.
     </p>
 
-    <!-- Android autre navigateur -->
-    <div id="androidOther" class="instructions">
-      <strong>Pour installer OCB sur Android</strong>
+    <!-- ACCÈS DIGIPAD -->
+    <a
+      class="button digipad"
+      href="https://digipad.app/p/1234419/95149a1460b23"
+      target="_blank"
+      rel="noopener"
+    >
+      Consulter le Digipad OCB
+    </a>
 
-      Vous utilisez actuellement un navigateur autre que Chrome.
-      <br><br>
 
-      Pour bénéficier de l'installation sur l'écran d'accueil,
-      ouvrez cette page avec <strong>Google Chrome</strong>.
-      
+    <!-- ========================= -->
+    <!-- INSTALLATION ANDROID AUTRE NAVIGATEUR -->
+    <!-- ========================= -->
+
+    <div id="androidOther" class="installation">
+
+      <div class="installation-title">
+        Installer OCB
+      </div>
+
+      <p>
+        Vous utilisez actuellement un navigateur autre que Chrome.
+      </p>
+
+      <p>
+        Pour installer OCB sur l'écran d'accueil de votre téléphone,
+        ouvrez cette page avec <strong>Google Chrome</strong>.
+      </p>
+
       <a
         id="openChrome"
-        class="button"
+        class="button install"
         href="#"
       >
-        🌐 Ouvrir dans Chrome
+        Ouvrir dans Chrome
       </a>
 
       <small>
-        Si le bouton ne fonctionne pas, ouvrez simplement cette adresse
-        avec Chrome :
+        Si le bouton ne fonctionne pas, ouvrez cette adresse avec Chrome :
         <br>
         <strong>skuntzmann.github.io/ocb/</strong>
       </small>
+
     </div>
 
-    <!-- Android Chrome -->
-    <div id="androidChrome" class="instructions">
-      <strong>Installation sur Android</strong>
+
+    <!-- ========================= -->
+    <!-- INSTALLATION ANDROID CHROME -->
+    <!-- ========================= -->
+
+    <div id="androidChrome" class="installation">
+
+      <div class="installation-title">
+        Installer OCB
+      </div>
 
       <p>
-        Vous pouvez installer OCB sur l'écran d'accueil de votre téléphone.
+        Ajoutez OCB à l'écran d'accueil de votre téléphone.
       </p>
 
-      <button id="installButton" class="button">
-        📲 Installer OCB
+      <button
+        id="installButton"
+        class="button install"
+      >
+        Installer OCB
       </button>
 
       <div id="androidManual" style="display:none;">
+
         <p>
           Si l'installation automatique n'est pas proposée :
         </p>
 
         <ol>
           <li>Appuyez sur le menu <strong>⋮</strong> de Chrome.</li>
-          <li>Choisissez <strong>Ajouter à l'écran d'accueil</strong>
-              ou <strong>Installer l'application</strong>.</li>
+          <li>
+            Choisissez
+            <strong>Ajouter à l'écran d'accueil</strong>
+            ou
+            <strong>Installer l'application</strong>.
+          </li>
           <li>Confirmez l'installation.</li>
         </ol>
+
       </div>
+
     </div>
 
-    <!-- iOS -->
-    <div id="iosInstructions" class="instructions">
-      <strong>Installation sur iPhone / iPad</strong>
+
+    <!-- ========================= -->
+    <!-- INSTALLATION IOS -->
+    <!-- ========================= -->
+
+    <div id="iosInstructions" class="installation">
+
+      <div class="installation-title">
+        Installer OCB
+      </div>
 
       <p>
-        🌐 Ouvrez cette page dans <strong>Safari</strong>.
+        Pour installer OCB sur votre iPhone ou votre iPad :
       </p>
 
       <ol>
-        <li>Appuyez sur le bouton <strong>Partager</strong> 📤.</li>
-        <li>Choisissez <strong>Sur l'écran d'accueil</strong>.</li>
-        <li>Appuyez sur <strong>Ajouter</strong>.</li>
+        <li>
+          Ouvrez cette page dans <strong>Safari</strong>.
+        </li>
+        <li>
+          Appuyez sur le bouton <strong>Partager</strong> 📤.
+        </li>
+        <li>
+          Choisissez <strong>Sur l'écran d'accueil</strong>.
+        </li>
+        <li>
+          Appuyez sur <strong>Ajouter</strong>.
+        </li>
       </ol>
+
     </div>
 
-    <!-- Ordinateur -->
-    <div id="desktopInstructions" class="instructions">
-      <strong>Installation sur ordinateur</strong>
+
+    <!-- ========================= -->
+    <!-- INSTALLATION ORDINATEUR -->
+    <!-- ========================= -->
+
+    <div id="desktopInstructions" class="installation">
+
+      <div class="installation-title">
+        Installer OCB
+      </div>
 
       <p>
-        Si votre navigateur propose l'installation du site,
-        utilisez l'icône d'installation dans la barre d'adresse
-        ou le menu du navigateur.
+        Vous pouvez installer OCB sur votre ordinateur si votre navigateur
+        propose cette fonction.
       </p>
-    </div>
 
-    <!-- Accès Digipad -->
-    <a
-      class="button secondary"
-      href="https://digipad.app/p/1234419/95149a1460b23"
-      target="_blank"
-      rel="noopener"
-    >
-      🎷 Consulter le Digipad OCB
-    </a>
+      <p>
+        Recherchez l'icône d'installation dans la barre d'adresse
+        ou dans le menu de votre navigateur.
+      </p>
+
+    </div>
 
   </div>
 
+
   <script>
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    const userAgent =
+      navigator.userAgent ||
+      navigator.vendor ||
+      window.opera;
 
     const isAndroid = /Android/i.test(userAgent);
+
     const isIOS =
       /iPhone|iPad|iPod/i.test(userAgent) ||
-      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      (
+        navigator.platform === "MacIntel" &&
+        navigator.maxTouchPoints > 1
+      );
 
     const isChromeAndroid =
       isAndroid &&
       /Chrome/i.test(userAgent) &&
       !/EdgA|OPR|SamsungBrowser|Firefox/i.test(userAgent);
 
-    const isDesktop = !isAndroid && !isIOS;
+    const isDesktop =
+      !isAndroid && !isIOS;
 
-    const androidOther = document.getElementById("androidOther");
-    const androidChrome = document.getElementById("androidChrome");
-    const iosInstructions = document.getElementById("iosInstructions");
-    const desktopInstructions = document.getElementById("desktopInstructions");
+
+    const androidOther =
+      document.getElementById("androidOther");
+
+    const androidChrome =
+      document.getElementById("androidChrome");
+
+    const iosInstructions =
+      document.getElementById("iosInstructions");
+
+    const desktopInstructions =
+      document.getElementById("desktopInstructions");
+
 
     /*
-     * Affichage selon le type d'appareil
+     * Affichage selon l'appareil
      */
 
     if (isAndroid) {
 
       if (isChromeAndroid) {
+
         androidChrome.style.display = "block";
+
       } else {
+
         androidOther.style.display = "block";
 
         /*
-         * Tentative d'ouverture dans Chrome.
-         * Android peut refuser cette URL selon le navigateur.
+         * Tentative d'ouverture dans Google Chrome.
          */
         const currentUrl =
           "https://skuntzmann.github.io/ocb/";
@@ -244,6 +363,7 @@
     } else if (isDesktop) {
 
       desktopInstructions.style.display = "block";
+
     }
 
 
@@ -253,61 +373,76 @@
 
     let deferredPrompt = null;
 
-    const installButton = document.getElementById("installButton");
-    const androidManual = document.getElementById("androidManual");
+    const installButton =
+      document.getElementById("installButton");
 
-    window.addEventListener("beforeinstallprompt", (event) => {
-
-      // Empêche Chrome d'afficher automatiquement sa propre fenêtre
-      event.preventDefault();
-
-      // On conserve l'événement pour notre bouton
-      deferredPrompt = event;
-
-      installButton.style.display = "block";
-      androidManual.style.display = "none";
-    });
+    const androidManual =
+      document.getElementById("androidManual");
 
 
-    installButton.addEventListener("click", async () => {
+    window.addEventListener(
+      "beforeinstallprompt",
+      (event) => {
 
-      if (deferredPrompt) {
+        event.preventDefault();
 
-        deferredPrompt.prompt();
+        deferredPrompt = event;
 
-        const result = await deferredPrompt.userChoice;
-
-        console.log(
-          "Résultat installation :",
-          result.outcome
-        );
-
-        deferredPrompt = null;
-
-        installButton.style.display = "none";
-
-      } else {
-
-        /*
-         * Si Chrome ne fournit pas beforeinstallprompt,
-         * on donne les instructions manuelles.
-         */
-        installButton.style.display = "none";
-        androidManual.style.display = "block";
+        installButton.style.display = "block";
+        androidManual.style.display = "none";
       }
-    });
+    );
+
+
+    installButton.addEventListener(
+      "click",
+      async () => {
+
+        if (deferredPrompt) {
+
+          deferredPrompt.prompt();
+
+          const result =
+            await deferredPrompt.userChoice;
+
+          console.log(
+            "Résultat installation :",
+            result.outcome
+          );
+
+          deferredPrompt = null;
+
+          installButton.style.display = "none";
+
+        } else {
+
+          /*
+           * Installation manuelle si Chrome ne fournit
+           * pas l'événement beforeinstallprompt.
+           */
+
+          installButton.style.display = "none";
+          androidManual.style.display = "block";
+        }
+      }
+    );
 
 
     /*
-     * Si l'application vient d'être installée
+     * Application installée
      */
-    window.addEventListener("appinstalled", () => {
 
-      console.log("OCB a été installé.");
+    window.addEventListener(
+      "appinstalled",
+      () => {
 
-      installButton.style.display = "none";
-      androidManual.style.display = "none";
-    });
+        console.log("OCB a été installé.");
+
+        installButton.style.display = "none";
+        androidManual.style.display = "none";
+      }
+    );
+
   </script>
 
 </body>
